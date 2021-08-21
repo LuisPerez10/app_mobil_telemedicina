@@ -33,7 +33,7 @@ class Usuario {
         nombre: json["nombre"],
         email: json["email"],
         password: json["password"],
-        img: json["img_perfil"],
+        img: json["img"],
         uid: json["uid"],
         role: json["role"],
       );
@@ -42,7 +42,7 @@ class Usuario {
         "nombre": nombre,
         "email": email,
         "password": password,
-        "img_perfil": img,
+        "img": img,
         "uid": uid,
         "role": role,
       };
