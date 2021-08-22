@@ -14,7 +14,7 @@ class BusquedaMedicoService with ChangeNotifier {
   Future<List<MedicoResponse>> buscarMedicos(String fullname) async {
     //    final token = await this._storage.read(key: 'token');
 
-    print(fullname);
+   
     final data = {"nombre": fullname};
 
     final resp = await http.post(
@@ -25,8 +25,6 @@ class BusquedaMedicoService with ChangeNotifier {
     if (resp.statusCode == 200) {
       final response = listaMedicosFromJson(resp.body);
       this.listamedicos = response.listamedicos;
-
-      print(listamedicos);
 
       return this.listamedicos;
     } else {

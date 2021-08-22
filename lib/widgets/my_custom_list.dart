@@ -5,9 +5,10 @@ import 'package:app_movil_telemedicina/widgets/image_circle_widget.dart';
 class MyCustomList extends StatelessWidget {
   final title;
   final subtitle;
-  final icon;
+  final imgUri;
+  final medico;
 
-  const MyCustomList({Key key, this.title, this.subtitle, this.icon})
+  const MyCustomList({Key key, this.title, this.subtitle, this.imgUri, this.medico})
       : super(key: key);
 
   @override
@@ -42,7 +43,7 @@ class MyCustomList extends StatelessWidget {
                             alignment: Alignment.topLeft,
                             child: ImageCircleWidget(
                               key: Key('value'),
-                              fotoUrl: "https://picsum.photos/200",
+                              fotoUrl: imgUri,
                               height: 50.0,
                             ),
                           ),
@@ -53,7 +54,8 @@ class MyCustomList extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(this.title,
+                          Text(
+                            this.title,
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                             softWrap: true,
@@ -98,7 +100,7 @@ class MyCustomList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomChip(
-                            label: 'Limpieza',
+                            label: 'Verificado',
                             textcolor: Colors.white,
                             color: Color.fromARGB(255, 32, 217, 148),
                             scale: .8,
@@ -134,8 +136,27 @@ class MyCustomList extends StatelessWidget {
                 ],
               ),
             ),
-          
-           
+            Divider(
+              // color: Colors.black,
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                MaterialButton(
+                    child: Text('Reservar Cita',
+                        style: TextStyle(color: Colors.white, fontSize: 18)),
+                    color: Theme.of(context).primaryColor,
+                    shape: StadiumBorder(),
+                    elevation: 0,
+                    splashColor: Colors.transparent,
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'reserva',
+                          arguments: medico);
+                    }),
+                const SizedBox(width: 20),
+              ],
+            ),
           ],
         ),
       ),

@@ -99,7 +99,7 @@ class CustomListile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomChip(
-                            label: 'Limpieza',
+                            label: 'verificado',
                             textcolor: Colors.white,
                             color: Color.fromARGB(255, 32, 217, 148),
                             scale: .8,

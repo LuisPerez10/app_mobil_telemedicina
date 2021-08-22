@@ -41,13 +41,55 @@ class DataSearch extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     // crea los resultados que vamos a mostrar
-    return Center(
-      child: Container(
-        height: 100,
-        width: 100,
-        color: (Colors.green),
-        child: Text(seleccion),
-      ),
+    
+    return FutureBuilder(
+      future: busquedaService.buscarMedicos(query),
+      builder:
+          (BuildContext context, AsyncSnapshot<List<MedicoResponse>> snapshot) {
+        if (!snapshot.hasError) {
+          if (snapshot.hasData) {
+            var medicos = snapshot.data;
+            if (medicos.length == 0) {
+              return Center(child: Text('no hay respuesta'));
+            }
+
+            // return ListView(
+            //   children: medicos.map((medico) {
+            //     return ListTile(
+            //       leading: FadeInImage(
+            //         image: NetworkImage(medicos[0].usuario.img),
+            //       ),
+            //     );
+            //   }).toList();
+
+            return ListView.builder(
+              itemCount: medicos.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                    leading: FadeInImage(
+                      image: NetworkImage(medicos[index].usuario.img),
+                      placeholder: AssetImage('assets/no-img.jpg'),
+                      width: 50.0,
+                      fit: BoxFit.contain,
+                    ),
+                    title: Text(medicos[index].usuario.nombre),
+                    subtitle: Text("Especialidad: " + medicos[index].medico.especialidad),
+                    trailing: Icon(Icons.arrow_right_sharp),
+                    onTap: () {
+                      close(context, null);
+                      Navigator.pushNamed(context, 'reserva', arguments: medicos[index]);
+                    });
+              },
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        } else {
+          return Center(child: Text("No se pudo conectar con el servidor"));
+        }
+      },
     );
   }
 
@@ -103,15 +145,19 @@ class DataSearch extends SearchDelegate {
               itemCount: medicos.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  leading: FadeInImage(
-                    image: NetworkImage(medicos[index].usuario.img),
-                    placeholder: AssetImage('assets/no-img.jpg'),
-                    width: 50.0,
-                    fit: BoxFit.contain,
-                  ),
-                  title: Text(medicos[index].usuario.nombre),
-                  subtitle: Text(medicos[index].medico.especialidad),
-                );
+                    leading: FadeInImage(
+                      image: NetworkImage(medicos[index].usuario.img),
+                      placeholder: AssetImage('assets/no-img.jpg'),
+                      width: 50.0,
+                      fit: BoxFit.contain,
+                    ),
+                    title: Text(medicos[index].usuario.nombre),
+                    subtitle: Text("Especialidad: " + medicos[index].medico.especialidad),
+                    trailing: Icon(Icons.arrow_right_sharp),
+                    onTap: () {
+                      close(context, null);
+                      Navigator.pushNamed(context, 'reserva', arguments: medicos[index]);
+                    });
               },
             );
           } else {
