@@ -42,20 +42,20 @@ class _HomePageBody extends StatelessWidget {
         return Container(
           child: Center(
             child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-            MaterialButton(
-                child: Text('Buscar Medico',
-                    style: TextStyle(color: Colors.white)),
-                color: Theme.of(context).primaryColor,
-                shape: StadiumBorder(),
-                elevation: 0,
-                splashColor: Colors.transparent,
-                onPressed: () async {
-                    await Navigator.pushReplacementNamed(context, 'buscar2');
-                })
-                  ],
-                ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                MaterialButton(
+                    child: Text('Buscar Medico',
+                        style: TextStyle(color: Colors.white)),
+                    color: Theme.of(context).primaryColor,
+                    shape: StadiumBorder(),
+                    elevation: 0,
+                    splashColor: Colors.transparent,
+                    onPressed: () async {
+                      await Navigator.pushNamed(context, 'buscar2');
+                    })
+              ],
+            ),
           ),
         ); //MapasPage();
 
