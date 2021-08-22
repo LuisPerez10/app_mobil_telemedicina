@@ -1,4 +1,4 @@
-package com.topico.flutter_topico2020
+package com.topico.good_doctor
 
 import io.flutter.embedding.android.FlutterActivity
 

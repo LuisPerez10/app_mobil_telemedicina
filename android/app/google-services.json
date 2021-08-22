@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "232502385383",
-    "project_id": "app_movil_telemedicina-1fe93",
-    "storage_bucket": "app_movil_telemedicina-1fe93.appspot.com"
+    "project_number": "439041510953",
+    "project_id": "topicos-telemedicina",
+    "storage_bucket": "topicos-telemedicina.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:232502385383:android:a0ac1be925f7a780732042",
+        "mobilesdk_app_id": "1:439041510953:android:efd94a985a4ee18904d638",
         "android_client_info": {
-          "package_name": "com.topico.app_movil_telemedicina"
+          "package_name": "com.topico.good_doctor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "232502385383-sulkov5br3o98up1s4ucfhncd1374hui.apps.googleusercontent.com",
+          "client_id": "439041510953-22tn58rp942db7amdl91algh514hmpkr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.topico.app_movil_telemedicina",
+            "package_name": "com.topico.good_doctor",
             "certificate_hash": "97c7361cf38d1ced6c6b54f9ab2acf77cb3d8dd7"
           }
         },
         {
-          "client_id": "232502385383-qt338v5tudos70l6dbu1cei76det806h.apps.googleusercontent.com",
+          "client_id": "439041510953-n97l6jn8f754r5ecjd0p60t8e42bjvl7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBrhcHWRT-7DEfOZOyUxWhmkEUNwY05OAc"
+          "current_key": "AIzaSyBddFd79ZNZ_SNdOs8Zsxzavk_-QOmeYa0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "232502385383-qt338v5tudos70l6dbu1cei76det806h.apps.googleusercontent.com",
+              "client_id": "439041510953-n97l6jn8f754r5ecjd0p60t8e42bjvl7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

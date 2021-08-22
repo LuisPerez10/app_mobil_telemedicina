@@ -41,7 +41,7 @@ class Persona {
         direccion: json["direccion"] ?? 'Sin Direccion',
         fechaNacimiento: json["fecha_nacimiento"],
         genero: json["genero"],
-        img: json["img_perfil"],
+        img: json["img"],
         // email: json["email"],
         // // password: json["password"],
       );
@@ -52,7 +52,7 @@ class Persona {
         "apellido": apellido,
         "celular": celular,
         "direccion": direccion,
-        "img_perfil": img,
+        "img": img,
         "genero": genero,
         "fecha_nacimiento": fechaNacimiento
       };

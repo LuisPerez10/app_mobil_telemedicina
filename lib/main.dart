@@ -38,14 +38,11 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     final notification = new NotificationsService();
     notification.initNotifications();
-
-    // notification.mensajesStream.listen((data) {
-    //   // navigatorKey.currentState.pushNamed('welcome', arguments: data);
-    //   print('recibiendo notification');
-    //   print(data);
-    //   // navigatorKey.currentState.pushNamed('login', arguments: data);
-    //   navigatorKey.currentState.pushNamed('login');
-    // });
+    notification.mensajesStream.listen((data) {
+      print('recibiendo notification');
+      print(data);
+      navigatorKey.currentState.pushNamed('login');
+    });
   }
 
   @override
@@ -62,8 +59,8 @@ class _MyAppState extends State<MyApp> {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Golden Hands',
-          // navigatorKey: navigatorKey,
+          title: 'Good Doctor',
+          navigatorKey: navigatorKey,
           localizationsDelegates: [
             // ... app-specific localization delegate[s] here
             GlobalMaterialLocalizations.delegate,
