@@ -34,20 +34,20 @@ class Persona {
   // String password;
 
   factory Persona.fromJson(Map<String, dynamic> json) => Persona(
-        id: json["id"],
+        id: json["_id"],
         nombre: json["nombre"],
         apellido: json["apellido"],
         celular: json["celular"],
         direccion: json["direccion"] ?? 'Sin Direccion',
-        fechaNacimiento: json["fecha_nacimiento"],
-        genero: json["genero"],
-        img: json["img"],
+        fechaNacimiento: json["fecha_nacimiento"] ?? '',
+        genero: json["genero"] ?? '',
+        img: json["img"] ?? '',
         // email: json["email"],
         // // password: json["password"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        "_id": id,
         "nombre": nombre,
         "apellido": apellido,
         "celular": celular,

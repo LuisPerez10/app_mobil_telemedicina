@@ -7,10 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
-
 class BusquedaMedicoService with ChangeNotifier {
   //final _storage = new FlutterSecureStorage();
-List<MedicoResponse> listamedicos;
+  List<MedicoResponse> listamedicos;
 
   Future<List<MedicoResponse>> buscarMedicos(String fullname) async {
     //    final token = await this._storage.read(key: 'token');
@@ -31,6 +30,7 @@ List<MedicoResponse> listamedicos;
 
       return this.listamedicos;
     } else {
+      this.listamedicos = [];
       return this.listamedicos;
     }
   }

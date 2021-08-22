@@ -83,37 +83,44 @@ class DataSearch extends SearchDelegate {
       future: busquedaService.buscarMedicos(query),
       builder:
           (BuildContext context, AsyncSnapshot<List<MedicoResponse>> snapshot) {
-        if (snapshot.hasData) {
-          final medicos = snapshot.data;
+        if (!snapshot.hasError) {
+          if (snapshot.hasData) {
+            var medicos = snapshot.data;
+            if (medicos.length == 0) {
+              return Center(child: Text('no hay respuesta'));
+            }
 
-          // return ListView(
-          //   children: medicos.map((medico) {
-          //     return ListTile(
-          //       leading: FadeInImage(
-          //         image: NetworkImage(medicos[0].usuario.img),
-          //       ),
-          //     );
-          //   }).toList();
+            // return ListView(
+            //   children: medicos.map((medico) {
+            //     return ListTile(
+            //       leading: FadeInImage(
+            //         image: NetworkImage(medicos[0].usuario.img),
+            //       ),
+            //     );
+            //   }).toList();
 
-          return ListView.builder(
-            itemCount: medicos.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                leading: FadeInImage(
-                  image: NetworkImage(medicos[index].usuario.img),
-                  placeholder: AssetImage('assets/no-img.jpg'),
-                  width: 50.0,
-                  fit: BoxFit.contain,
-                ),
-                title: Text(medicos[index].usuario.nombre),
-                subtitle: Text(medicos[index].medico.especialidad),
-              );
-            },
-          );
+            return ListView.builder(
+              itemCount: medicos.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  leading: FadeInImage(
+                    image: NetworkImage(medicos[index].usuario.img),
+                    placeholder: AssetImage('assets/no-img.jpg'),
+                    width: 50.0,
+                    fit: BoxFit.contain,
+                  ),
+                  title: Text(medicos[index].usuario.nombre),
+                  subtitle: Text(medicos[index].medico.especialidad),
+                );
+              },
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         } else {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
+          return Center(child: Text("No se pudo conectar con el servidor"));
         }
       },
     );
