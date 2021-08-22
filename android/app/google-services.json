@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "232502385383",
-    "project_id": "goldenhands-1fe93",
-    "storage_bucket": "goldenhands-1fe93.appspot.com"
+    "project_id": "app_movil_telemedicina-1fe93",
+    "storage_bucket": "app_movil_telemedicina-1fe93.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:232502385383:android:a0ac1be925f7a780732042",
         "android_client_info": {
-          "package_name": "com.topico.goldenhands"
+          "package_name": "com.topico.app_movil_telemedicina"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "232502385383-sulkov5br3o98up1s4ucfhncd1374hui.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.topico.goldenhands",
+            "package_name": "com.topico.app_movil_telemedicina",
             "certificate_hash": "97c7361cf38d1ced6c6b54f9ab2acf77cb3d8dd7"
           }
         },

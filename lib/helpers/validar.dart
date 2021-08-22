@@ -1,4 +1,4 @@
-import 'package:goldenhands/services/paciente_service.dart';
+import 'package:app_movil_telemedicina/services/paciente_service.dart';
 
 class Validar {
   String validarEmail(String email, [valido = true]) {

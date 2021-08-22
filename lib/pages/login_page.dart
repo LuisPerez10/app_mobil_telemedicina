@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:goldenhands/helpers/mostrar_alerta.dart';
-import 'package:goldenhands/helpers/validar.dart';
-import 'package:goldenhands/pages/Registro/formUsuario.dart';
-import 'package:goldenhands/services/auth_service.dart';
-import 'package:goldenhands/services/notification_service.dart';
-import 'package:goldenhands/widgets/boton_principal.dart';
-import 'package:goldenhands/widgets/form_field_input/form_field_input.dart';
-import 'package:goldenhands/widgets/logo/appname_widget.dart';
-import 'package:goldenhands/widgets/logo/logo_widget.dart';
+import 'package:app_movil_telemedicina/helpers/mostrar_alerta.dart';
+import 'package:app_movil_telemedicina/helpers/validar.dart';
+import 'package:app_movil_telemedicina/pages/Registro/formUsuario.dart';
+import 'package:app_movil_telemedicina/services/auth_service.dart';
+import 'package:app_movil_telemedicina/services/notification_service.dart';
+import 'package:app_movil_telemedicina/widgets/boton_principal.dart';
+import 'package:app_movil_telemedicina/widgets/form_field_input/form_field_input.dart';
+import 'package:app_movil_telemedicina/widgets/logo/appname_widget.dart';
+import 'package:app_movil_telemedicina/widgets/logo/logo_widget.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {

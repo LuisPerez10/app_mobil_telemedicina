@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:goldenhands/pages/home_page.dart';
-import 'package:goldenhands/pages/welcome_page.dart';
-import 'package:goldenhands/services/auth_service.dart';
-import 'package:goldenhands/widgets/logo/appname_widget.dart';
-import 'package:goldenhands/widgets/logo/logo_widget.dart';
+import 'package:app_movil_telemedicina/pages/home_page.dart';
+import 'package:app_movil_telemedicina/pages/welcome_page.dart';
+import 'package:app_movil_telemedicina/services/auth_service.dart';
+import 'package:app_movil_telemedicina/widgets/logo/appname_widget.dart';
+import 'package:app_movil_telemedicina/widgets/logo/logo_widget.dart';
 import 'package:provider/provider.dart';
 
 class LoadingPage extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goldenhands/services/BottomNavigationBarServices/ui_provider.dart';
+import 'package:app_movil_telemedicina/services/BottomNavigationBarServices/ui_provider.dart';
 import 'package:provider/provider.dart';
 
 class CustomNavigationBar extends StatelessWidget {

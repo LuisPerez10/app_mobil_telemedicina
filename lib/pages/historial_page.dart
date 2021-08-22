@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:goldenhands/pages/tapbar_page.dart';
-import 'package:goldenhands/widgets/custom_listtitle.dart';
+import 'package:app_movil_telemedicina/pages/tapbar_page.dart';
+import 'package:app_movil_telemedicina/widgets/custom_listtitle.dart';
 
 class HistorialPage extends StatelessWidget {
   const HistorialPage({Key key}) : super(key: key);
@@ -10,9 +10,9 @@ class HistorialPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: TapBarPage(tabs: [
-          Tab(text: 'asd'),
+          Tab(text: 'Tab1'),
           Tab(
-            text: 'asd',
+            text: 'Tab2',
           )
         ], pages: [
           SingleChildScrollView(

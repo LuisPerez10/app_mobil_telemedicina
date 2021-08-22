@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-import 'package:goldenhands/models/persona.dart';
-import 'package:goldenhands/models/usuario.dart';
+import 'package:app_movil_telemedicina/models/persona.dart';
+import 'package:app_movil_telemedicina/models/usuario.dart';
 
 LoginResponse loginResponseFromJson(String str) =>
     LoginResponse.fromJson(json.decode(str));

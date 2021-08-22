@@ -1,15 +1,15 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:goldenhands/models/persona.dart';
-import 'package:goldenhands/models/usuario.dart';
-import 'package:goldenhands/pages/Registro/formPaciente.dart';
-import 'package:goldenhands/pages/Registro/formUsuario.dart';
-import 'package:goldenhands/bloc/Paciente_bloc.dart';
-import 'package:goldenhands/models/foto.dart';
-import 'package:goldenhands/models/paciente.dart';
-import 'package:goldenhands/models/user_register.dart';
-import 'package:goldenhands/services/upload_service.dart';
+import 'package:app_movil_telemedicina/models/persona.dart';
+import 'package:app_movil_telemedicina/models/usuario.dart';
+import 'package:app_movil_telemedicina/pages/Registro/formPaciente.dart';
+import 'package:app_movil_telemedicina/pages/Registro/formUsuario.dart';
+import 'package:app_movil_telemedicina/bloc/Paciente_bloc.dart';
+import 'package:app_movil_telemedicina/models/foto.dart';
+import 'package:app_movil_telemedicina/models/paciente.dart';
+import 'package:app_movil_telemedicina/models/user_register.dart';
+import 'package:app_movil_telemedicina/services/upload_service.dart';
 
 class RegisterPacientePage extends StatefulWidget {
   RegisterPacientePage({Key key}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:goldenhands/global/environment.dart';
-import 'package:goldenhands/models/paciente.dart';
-import 'package:goldenhands/models/persona.dart';
-import 'package:goldenhands/models/user_register.dart';
-import 'package:goldenhands/models/usuario.dart';
+import 'package:app_movil_telemedicina/global/environment.dart';
+import 'package:app_movil_telemedicina/models/paciente.dart';
+import 'package:app_movil_telemedicina/models/persona.dart';
+import 'package:app_movil_telemedicina/models/user_register.dart';
+import 'package:app_movil_telemedicina/models/usuario.dart';
 import 'package:http/http.dart' as http;
 
 class PacienteService {

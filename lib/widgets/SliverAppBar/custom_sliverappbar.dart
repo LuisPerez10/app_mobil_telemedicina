@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goldenhands/widgets/image_circle_widget.dart';
+import 'package:app_movil_telemedicina/widgets/image_circle_widget.dart';
 
 class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;

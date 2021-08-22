@@ -1,6 +1,6 @@
 // import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';
-// import 'package:goldenhands/bloc/trabajador_servicios_bloc.dart';
+// import 'package:app_movil_telemedicina/bloc/trabajador_servicios_bloc.dart';
 
 // class ListViewWidget extends StatelessWidget {
 //   const ListViewWidget({Key key}) : super(key: key);

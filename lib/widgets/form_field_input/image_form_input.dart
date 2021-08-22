@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:goldenhands/widgets/boton_principal.dart';
+import 'package:app_movil_telemedicina/widgets/boton_principal.dart';
 
 class ImageFormInput extends FormField<PickedFile> {
   final BuildContext context;

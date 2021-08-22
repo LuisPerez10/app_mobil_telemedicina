@@ -1,9 +1,9 @@
 // import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';
-// import 'package:goldenhands/helpers/validar.dart';
-// import 'package:goldenhands/utils/sysUtils.dart';
-// import 'package:goldenhands/widgets/boton_principal.dart';
-// import 'package:goldenhands/widgets/custom_loading.dart';
+// import 'package:app_movil_telemedicina/helpers/validar.dart';
+// import 'package:app_movil_telemedicina/utils/sysUtils.dart';
+// import 'package:app_movil_telemedicina/widgets/boton_principal.dart';
+// import 'package:app_movil_telemedicina/widgets/custom_loading.dart';
 
 // class CheckBoxWidget extends StatefulWidget {
 //   final Function(List<String>, List<String>) callback;

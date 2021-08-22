@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:goldenhands/global/environment.dart';
+import 'package:app_movil_telemedicina/global/environment.dart';
 
 UserRegister userFromJson(String str) =>
     UserRegister.fromJson(json.decode(str));

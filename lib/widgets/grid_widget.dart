@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:goldenhands/widgets/custom_loading.dart';
+import 'package:app_movil_telemedicina/widgets/custom_loading.dart';
 
 class GridWidget extends StatelessWidget {
   final Stream<List<dynamic>> stream;

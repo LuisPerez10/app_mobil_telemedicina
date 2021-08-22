@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:goldenhands/widgets/boton_principal.dart';
-import 'package:goldenhands/widgets/customClipper.dart';
-import 'package:goldenhands/widgets/logo/appname_widget.dart';
-import 'package:goldenhands/widgets/logo/logo_widget.dart';
+import 'package:app_movil_telemedicina/widgets/boton_principal.dart';
+import 'package:app_movil_telemedicina/widgets/customClipper.dart';
+import 'package:app_movil_telemedicina/widgets/logo/appname_widget.dart';
+import 'package:app_movil_telemedicina/widgets/logo/logo_widget.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key key}) : super(key: key);

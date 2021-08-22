@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:goldenhands/global/environment.dart';
+import 'package:app_movil_telemedicina/global/environment.dart';
 
 Persona personaFromJson(String str) => Persona.fromJson(json.decode(str));
 

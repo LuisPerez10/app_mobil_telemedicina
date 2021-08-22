@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:goldenhands/models/persona.dart';
-import 'package:goldenhands/models/usuario.dart';
-import 'package:goldenhands/models/paciente.dart';
+import 'package:app_movil_telemedicina/models/persona.dart';
+import 'package:app_movil_telemedicina/models/usuario.dart';
+import 'package:app_movil_telemedicina/models/paciente.dart';
 
-import 'package:goldenhands/services/paciente_service.dart';
+import 'package:app_movil_telemedicina/services/paciente_service.dart';
 
 class PacienteBloc {
   String paciente;

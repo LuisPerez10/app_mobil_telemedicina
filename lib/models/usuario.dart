@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:goldenhands/global/environment.dart';
+import 'package:app_movil_telemedicina/global/environment.dart';
 
 Usuario usuarioFromJson(String str) => Usuario.fromJson(json.decode(str));
 

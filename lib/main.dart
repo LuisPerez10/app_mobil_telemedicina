@@ -1,12 +1,13 @@
+import 'package:app_movil_telemedicina/services/busqueda_medico_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:goldenhands/services/BottomNavigationBarServices/ui_provider.dart';
-import 'package:goldenhands/services/auth_service.dart';
-import 'package:goldenhands/services/notification_service.dart';
+import 'package:app_movil_telemedicina/services/BottomNavigationBarServices/ui_provider.dart';
+import 'package:app_movil_telemedicina/services/auth_service.dart';
+import 'package:app_movil_telemedicina/services/notification_service.dart';
 import 'package:provider/provider.dart';
-import 'package:goldenhands/routes/routes.dart';
-import 'package:goldenhands/services/paciente_service.dart';
-import 'package:goldenhands/services/upload_service.dart';
+import 'package:app_movil_telemedicina/routes/routes.dart';
+import 'package:app_movil_telemedicina/services/paciente_service.dart';
+import 'package:app_movil_telemedicina/services/upload_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 // import 'bloc/trabajador_servicios_bloc.dart';
@@ -54,7 +55,10 @@ class _MyAppState extends State<MyApp> {
           ChangeNotifierProvider(create: (_) => AuthService()),
           ChangeNotifierProvider(create: (_) => FileUploadService()),
           ChangeNotifierProvider(create: (_) => UiProvider()),
+          ChangeNotifierProvider(create: (_) => BusquedaMedicoService()),
+
           Provider(create: (_) => NotificationsService()),
+          
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

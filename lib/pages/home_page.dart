@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:goldenhands/models/usuario.dart';
-import 'package:goldenhands/pages/historial_page.dart';
-import 'package:goldenhands/pages/perfil_page.dart';
-import 'package:goldenhands/pages/perfil_user_page.dart';
-import 'package:goldenhands/services/BottomNavigationBarServices/ui_provider.dart';
-import 'package:goldenhands/services/auth_service.dart';
-import 'package:goldenhands/services/notification_service.dart';
-import 'package:goldenhands/widgets/BottomNavigationBarWidget/custom_navigatorbar.dart';
+import 'package:app_movil_telemedicina/models/usuario.dart';
+import 'package:app_movil_telemedicina/pages/historial_page.dart';
+import 'package:app_movil_telemedicina/pages/perfil_page.dart';
+import 'package:app_movil_telemedicina/pages/perfil_user_page.dart';
+import 'package:app_movil_telemedicina/services/BottomNavigationBarServices/ui_provider.dart';
+import 'package:app_movil_telemedicina/services/auth_service.dart';
+import 'package:app_movil_telemedicina/services/notification_service.dart';
+import 'package:app_movil_telemedicina/widgets/BottomNavigationBarWidget/custom_navigatorbar.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -40,7 +40,23 @@ class _HomePageBody extends StatelessWidget {
       case 0:
         // scanListProvider.cargarScanPorTipo('geo');
         return Container(
-          child: Center(child: Text('TAP 0')),
+          child: Center(
+            child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+            MaterialButton(
+                child: Text('Buscar Medico',
+                    style: TextStyle(color: Colors.white)),
+                color: Theme.of(context).primaryColor,
+                shape: StadiumBorder(),
+                elevation: 0,
+                splashColor: Colors.transparent,
+                onPressed: () async {
+                    await Navigator.pushReplacementNamed(context, 'buscar2');
+                })
+                  ],
+                ),
+          ),
         ); //MapasPage();
 
       case 1:

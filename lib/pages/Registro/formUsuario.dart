@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:goldenhands/helpers/input_formatter.dart';
-import 'package:goldenhands/helpers/validar.dart';
-import 'package:goldenhands/models/foto.dart';
-import 'package:goldenhands/models/persona.dart';
-import 'package:goldenhands/models/usuario.dart';
-import 'package:goldenhands/pages/Registro/register_paciente_page.dart';
-import 'package:goldenhands/widgets/form_field_input/dropdown_form_input.dart';
-import 'package:goldenhands/widgets/form_field_input/form_field_input.dart';
-import 'package:goldenhands/widgets/form_field_input/image_form_input.dart';
+import 'package:app_movil_telemedicina/helpers/input_formatter.dart';
+import 'package:app_movil_telemedicina/helpers/validar.dart';
+import 'package:app_movil_telemedicina/models/foto.dart';
+import 'package:app_movil_telemedicina/models/persona.dart';
+import 'package:app_movil_telemedicina/models/usuario.dart';
+import 'package:app_movil_telemedicina/pages/Registro/register_paciente_page.dart';
+import 'package:app_movil_telemedicina/widgets/form_field_input/dropdown_form_input.dart';
+import 'package:app_movil_telemedicina/widgets/form_field_input/form_field_input.dart';
+import 'package:app_movil_telemedicina/widgets/form_field_input/image_form_input.dart';
 import 'package:date_format/date_format.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 

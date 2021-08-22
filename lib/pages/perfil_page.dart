@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:goldenhands/pages/tapbar_page.dart';
-import 'package:goldenhands/widgets/SliverAppBar/custom_sliverappbar.dart';
-import 'package:goldenhands/widgets/card/custom_card.dart';
-import 'package:goldenhands/widgets/custom_chip.dart';
-import 'package:goldenhands/widgets/custom_listtitle.dart';
-import 'package:goldenhands/widgets/perfil/description_multiline_widget.dart';
-import 'package:goldenhands/widgets/perfil/dividersection_widget.dart';
-import 'package:goldenhands/widgets/perfil/chipsection_widget.dart';
+import 'package:app_movil_telemedicina/pages/tapbar_page.dart';
+import 'package:app_movil_telemedicina/widgets/SliverAppBar/custom_sliverappbar.dart';
+import 'package:app_movil_telemedicina/widgets/card/custom_card.dart';
+import 'package:app_movil_telemedicina/widgets/custom_chip.dart';
+import 'package:app_movil_telemedicina/widgets/custom_listtitle.dart';
+import 'package:app_movil_telemedicina/widgets/perfil/description_multiline_widget.dart';
+import 'package:app_movil_telemedicina/widgets/perfil/dividersection_widget.dart';
+import 'package:app_movil_telemedicina/widgets/perfil/chipsection_widget.dart';
 
 class PerfilPage extends StatefulWidget {
   // final UsuarioResponse()

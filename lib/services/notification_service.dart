@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
-import 'package:goldenhands/global/environment.dart';
+import 'package:app_movil_telemedicina/global/environment.dart';
 
 class NotificationsService {
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
