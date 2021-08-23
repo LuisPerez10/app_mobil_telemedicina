@@ -187,11 +187,13 @@ Widget _cargarMedicos(BuildContext context, String especialidad) {
               //         Navigator.pushNamed(context, 'reserva', arguments: medicos[index]);
               //       });
               return MyCustomList(
-                title: medicos[index].usuario.nombre,
-                subtitle: medicos[index].medico.especialidad,
-                imgUri: medicos[index].usuario.img,
-                medico: medicos[index],
-              );
+                  title: medicos[index].usuario.nombre,
+                  subtitle: medicos[index].medico.especialidad,
+                  imgUri: medicos[index].usuario.img,
+                  medico: medicos[index],
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('reserva', arguments: medicos[index]);
+                  });
             },
           );
         } else {

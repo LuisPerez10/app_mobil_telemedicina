@@ -7,8 +7,17 @@ class MyCustomList extends StatelessWidget {
   final subtitle;
   final imgUri;
   final medico;
+  final item;
+  final Function onPressed;
 
-  const MyCustomList({Key key, this.title, this.subtitle, this.imgUri, this.medico})
+  const MyCustomList(
+      {Key key,
+      this.title,
+      this.subtitle,
+      this.imgUri,
+      this.medico,
+      this.onPressed,
+      this.item})
       : super(key: key);
 
   @override
@@ -143,17 +152,21 @@ class MyCustomList extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
+                Text(
+                  this.item??"",
+                  style: TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                  softWrap: true,
+                ),
                 MaterialButton(
-                    child: Text('Reservar Cita',
-                        style: TextStyle(color: Colors.white, fontSize: 18)),
-                    color: Theme.of(context).primaryColor,
-                    shape: StadiumBorder(),
-                    elevation: 0,
-                    splashColor: Colors.transparent,
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'reserva',
-                          arguments: medico);
-                    }),
+                  child: Text('Reservar Cita',
+                      style: TextStyle(color: Colors.white, fontSize: 18)),
+                  color: Theme.of(context).primaryColor,
+                  shape: StadiumBorder(),
+                  elevation: 0,
+                  splashColor: Colors.transparent,
+                  onPressed: this.onPressed,
+                ),
                 const SizedBox(width: 20),
               ],
             ),
