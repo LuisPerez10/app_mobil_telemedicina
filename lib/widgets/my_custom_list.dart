@@ -8,6 +8,7 @@ class MyCustomList extends StatelessWidget {
   final imgUri;
   final medico;
   final item;
+  final nameButton;
   final Function onPressed;
 
   const MyCustomList(
@@ -17,7 +18,8 @@ class MyCustomList extends StatelessWidget {
       this.imgUri,
       this.medico,
       this.onPressed,
-      this.item})
+      this.item,
+      this.nameButton})
       : super(key: key);
 
   @override
@@ -76,7 +78,7 @@ class MyCustomList extends StatelessWidget {
                                       color: Color.fromARGB(255, 182, 183, 183),
                                       fontSize: 14),
                                   softWrap: true),
-                              Icon(Icons.location_pin)
+                              Icon(Icons.medical_services, color: Colors.black38,)
                             ],
                           )
                         ],
@@ -152,14 +154,18 @@ class MyCustomList extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                Text(
-                  this.item??"",
-                  style: TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
-                  softWrap: true,
-                ),
+              
+                  Padding(
+                    padding: const EdgeInsets.only(right: 50.0),
+                    child: Text(
+                      this.item ?? "",
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),
+                      softWrap: true,
+                    ),
+                  ),
+                
                 MaterialButton(
-                  child: Text('Reservar Cita',
+                  child: Text(nameButton,
                       style: TextStyle(color: Colors.white, fontSize: 18)),
                   color: Theme.of(context).primaryColor,
                   shape: StadiumBorder(),

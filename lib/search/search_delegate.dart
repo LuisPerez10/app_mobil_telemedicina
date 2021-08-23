@@ -95,27 +95,6 @@ class DataSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // Tlas sugerencias que aparecen cuando la persona escribe
-    // final listaSugerida = (query.isEmpty)
-    //     ? peliculasRecientes
-    //     : peliculas
-    //         .where((element) =>
-    //             element.toLowerCase().startsWith(query.toLowerCase()))
-    //         .toList();
-
-    // return ListView.builder(
-    //   itemCount: listaSugerida.length,
-    //   itemBuilder: (BuildContext context, int index) {
-    //     return ListTile(
-    //       leading: Icon(Icons.movie),
-    //       title: (Text(listaSugerida[index])),
-    //       onTap: () {
-    //         seleccion = listaSugerida[index];
-    //         showResults(context);
-    //       },
-    //     );
-    //   },
-    // );
 
     if (query.isEmpty) {
       return Container();
@@ -131,16 +110,6 @@ class DataSearch extends SearchDelegate {
             if (medicos.length == 0) {
               return Center(child: Text('no hay respuesta'));
             }
-
-            // return ListView(
-            //   children: medicos.map((medico) {
-            //     return ListTile(
-            //       leading: FadeInImage(
-            //         image: NetworkImage(medicos[0].usuario.img),
-            //       ),
-            //     );
-            //   }).toList();
-
             return ListView.builder(
               itemCount: medicos.length,
               itemBuilder: (BuildContext context, int index) {
