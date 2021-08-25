@@ -28,6 +28,11 @@ apply plugin: 'com.google.gms.google-services'
 
 
 android {
+
+    // ndkVersion "21.1.6352462"
+    ndkVersion "22.1.7171670"
+
+
     compileSdkVersion 29
 
     sourceSets {

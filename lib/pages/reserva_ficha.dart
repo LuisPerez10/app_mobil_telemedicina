@@ -255,7 +255,8 @@ class _ReservaFichaState extends State<ReservaFicha> {
 
   bool hasMinuDif(DateTime horaCierre, DateTime horaInicioAux) {
     var difMinutes = horaCierre.difference(horaInicioAux).inMinutes;
-    return difMinutes >= 0;
+    // return difMinutes >= 0; agarra un turno mas
+    return difMinutes > 0;
   }
 
   Widget _customChip2(String label) {
