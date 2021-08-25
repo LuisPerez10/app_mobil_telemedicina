@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-mostrarAlerta(BuildContext context, String titulo, String subtitulo) {
+mostrarAlerta(BuildContext context, String titulo, String subtitulo,
+    {Function onPressed}) {
   if (Platform.isAndroid) {
     return showDialog(
         context: context,
@@ -15,7 +16,7 @@ mostrarAlerta(BuildContext context, String titulo, String subtitulo) {
                     child: Text('Ok'),
                     elevation: 5,
                     textColor: Colors.blue,
-                    onPressed: () => Navigator.pop(context))
+                    onPressed: onPressed ?? () => Navigator.pop(context))
               ],
             ));
   }

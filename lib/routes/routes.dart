@@ -10,7 +10,6 @@ import 'package:app_movil_telemedicina/pages/tapbar_page.dart';
 import 'package:app_movil_telemedicina/pages/welcome_page.dart';
 import 'package:app_movil_telemedicina/pages/loading_page.dart';
 
-
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   'loading': (BuildContext c) => LoadingPage(),
   'home': (BuildContext c) => HomePage(),
@@ -20,7 +19,6 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   'register_paciente': (BuildContext c) => RegisterPacientePage(),
   'tapbar': (BuildContext c) => TapBarPage(),
   'buscar2': (BuildContext c) => Buscar_Medicos(),
-  'reserva': (BuildContext c) => reservaFicha(),
+  'reserva': (BuildContext c) => ReservaFicha(),
   'detalle': (BuildContext c) => DetalleBusqueda(),
-  
 };

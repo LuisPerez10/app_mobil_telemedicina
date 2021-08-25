@@ -1,4 +1,6 @@
 import 'package:app_movil_telemedicina/services/busqueda_medico_service.dart';
+import 'package:app_movil_telemedicina/services/horario_service.dart';
+import 'package:app_movil_telemedicina/services/reserva_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app_movil_telemedicina/services/BottomNavigationBarServices/ui_provider.dart';
@@ -6,7 +8,6 @@ import 'package:app_movil_telemedicina/services/auth_service.dart';
 import 'package:app_movil_telemedicina/services/notification_service.dart';
 import 'package:provider/provider.dart';
 import 'package:app_movil_telemedicina/routes/routes.dart';
-import 'package:app_movil_telemedicina/services/paciente_service.dart';
 import 'package:app_movil_telemedicina/services/upload_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -53,9 +54,9 @@ class _MyAppState extends State<MyApp> {
           ChangeNotifierProvider(create: (_) => FileUploadService()),
           ChangeNotifierProvider(create: (_) => UiProvider()),
           ChangeNotifierProvider(create: (_) => BusquedaMedicoService()),
-
+          ChangeNotifierProvider(create: (_) => HorarioService()),
+          ChangeNotifierProvider(create: (_) => ReservaService()),
           Provider(create: (_) => NotificationsService()),
-          
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
