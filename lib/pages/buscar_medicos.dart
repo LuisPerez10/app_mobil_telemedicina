@@ -28,6 +28,7 @@ class _BuscarMedicosPageState extends State<BuscarMedicosPage> {
 
     super.initState();
   }
+
   @override
   void dispose() {
     super.dispose();
@@ -155,8 +156,8 @@ class EachList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-          // Navigator.of(context).pushNamed('detalle');
-         Navigator.pushNamed(context, 'detalle', arguments: name);
+        // Navigator.of(context).pushNamed('detalle');
+        Navigator.pushNamed(context, 'detalle', arguments: name);
       },
       child: new Card(
         child: new Container(

@@ -193,7 +193,8 @@ Widget _cargarMedicos(BuildContext context, String especialidad) {
                   medico: medicos[index],
                   nameButton: "Realizar Recerva",
                   onPressed: () {
-                    Navigator.of(context).pushNamed('reserva', arguments: medicos[index]);
+                    Navigator.of(context)
+                        .pushNamed('reserva', arguments: medicos[index]);
                   });
             },
           );
