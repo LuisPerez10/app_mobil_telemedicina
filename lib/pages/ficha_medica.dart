@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:app_movil_telemedicina/helpers/mostrar_alerta.dart';
 
 import 'package:app_movil_telemedicina/models/fichas_medicas.dart';
+import 'package:app_movil_telemedicina/models/sala.dart';
 
 import 'package:app_movil_telemedicina/services/ficha_medica_service.dart';
 import 'package:app_movil_telemedicina/widgets/my_custom_list.dart';
@@ -10,8 +12,8 @@ import 'package:adobe_xd/pinned.dart';
 
 import 'package:intl/intl.Dart';
 
-class FichaMedica extends StatefulWidget {
-  FichaMedica({
+class FichaMedicaPage extends StatefulWidget {
+  FichaMedicaPage({
     Key key,
   }) : super(key: key);
 
@@ -19,7 +21,7 @@ class FichaMedica extends StatefulWidget {
   _FichaMedicaState createState() => _FichaMedicaState();
 }
 
-class _FichaMedicaState extends State<FichaMedica> {
+class _FichaMedicaState extends State<FichaMedicaPage> {
   @override
   void initState() {
     super.initState();
@@ -89,9 +91,9 @@ class _FichaMedicaState extends State<FichaMedica> {
           // ),
           Pinned.fromPins(
             Pin(size: 166.0, start: 28.0),
-            Pin(size: 20.0, middle: 0.2424),
+            Pin(size: 20.0, middle: 0.2224),
             child: Text(
-              'Tu lista de fichas',
+              'Tus Fichas Reservadas',
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 14,
@@ -103,7 +105,7 @@ class _FichaMedicaState extends State<FichaMedica> {
           ),
           Pinned.fromPins(
             Pin(start: 0.0, end: 0.0),
-            Pin(start: 200, end: 0.0),
+            Pin(start: 165, end: 0.0),
             child: // Adobe XD layer: 'Grupo lista de medi…' (group)
                 Stack(
               children: <Widget>[
@@ -149,13 +151,19 @@ Widget _cargarFichas(BuildContext context) {
               return MyCustomList(
                   title: ficha[index].medico.nombre +
                       " " +
-                      ficha[index].medico.nombre,
+                      ficha[index].medico.apellido,
                   subtitle: "Especialidad: " + medico[index].especialidad,
                   imgUri: ficha[index].medico.usuario.img,
                   item: _tofecha(ficha[index].fecha),
                   nameButton: "Ingresar a Sala",
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('jitsi');
+                  onPressed: () async {
+                    var isVerificada = _verificarFecha(ficha[index].fecha);
+                    if (isVerificada) {
+                      _verEstadoSala(context, ficha[index].id);
+                    } else {
+                      mostrarAlerta(context, "Informacion de Sala",
+                          "Verifique la fecha de su consulta...");
+                    }
                   });
             },
           );
@@ -171,6 +179,29 @@ Widget _cargarFichas(BuildContext context) {
   );
 }
 
+bool _verificarFecha(DateTime fecha) {
+  var fechaFicha = fecha;
+  var formatter = new DateFormat('dd-MM');
+  var fechanow = new DateTime.now();
+
+  String fechaFichaFormate = formatter.format(fechaFicha);
+  String fechaNowFormate = formatter.format(fechanow);
+
+   return (fechaFichaFormate == fechaNowFormate) ? true : false;
+  //return true;
+}
+
+void _verEstadoSala(BuildContext context, String id) async {
+  final fichasService = new FichasMedicasService();
+   Sala data = await fichasService.getEstadoSala(id);
+  if (data.estado == "habilitado") {
+    Navigator.of(context).pushNamed('jitsi', arguments: data);
+  } else {
+    mostrarAlerta(context, "Informacion de Sala",
+        "La Sala todavia no ha sido iniciada, por favor espere e intente nuevamente");
+  }
+}
+
 _tofecha(DateTime fecha) {
   var now = fecha;
   var formatter = new DateFormat('dd-MM');
@@ -178,7 +209,7 @@ _tofecha(DateTime fecha) {
   String formatted = formatter.format(now);
   String formattedtimed = formatterTime.format(now);
 
-  print(formatted); // something like 2013-04-20
+  //print(formatted); // something like 2013-04-20
 
   return formatted + " a " + formattedtimed;
 }

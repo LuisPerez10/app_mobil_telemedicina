@@ -20,7 +20,7 @@ class DemoCheckState extends State<DemoCheck> {
   Map<String, bool> mapValues = {};
   @override
   void initState() {
-    // TODO: implement initState
+   
     listToMap();
     super.initState();
   }

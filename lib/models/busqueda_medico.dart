@@ -1,9 +1,6 @@
 import 'dart:convert';
 
 import 'package:app_movil_telemedicina/models/listaMedico.dart';
-import 'package:app_movil_telemedicina/models/medico.dart';
-import 'package:app_movil_telemedicina/models/persona.dart';
-import 'package:app_movil_telemedicina/models/usuario.dart';
 
 // To parse this JSON data, do
 //

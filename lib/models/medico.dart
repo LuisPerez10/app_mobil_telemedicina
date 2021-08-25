@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:app_movil_telemedicina/models/persona.dart';
+
 
 // To parse this JSON data, do
 //

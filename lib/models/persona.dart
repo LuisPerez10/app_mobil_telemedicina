@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:app_movil_telemedicina/global/environment.dart';
+
 
 Persona personaFromJson(String str) => Persona.fromJson(json.decode(str));
 
 String personaToJson(Persona data) => json.encode(data.toJson());
 
-final base_url = Environment.apiUrl;
+
 
 class Persona {
   Persona({

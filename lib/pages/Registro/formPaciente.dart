@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:app_movil_telemedicina/helpers/input_formatter.dart';
 import 'package:app_movil_telemedicina/helpers/validar.dart';
-import 'package:app_movil_telemedicina/models/foto.dart';
-import 'package:app_movil_telemedicina/models/paciente.dart';
+
 import 'package:app_movil_telemedicina/models/persona.dart';
 import 'package:app_movil_telemedicina/models/usuario.dart';
 import 'package:app_movil_telemedicina/pages/Registro/register_paciente_page.dart';
 import 'package:app_movil_telemedicina/widgets/checkbox_w.dart';
-import 'package:app_movil_telemedicina/widgets/form_field_input/checkbox_form_input.dart';
-import 'package:app_movil_telemedicina/widgets/form_field_input/dropdown_form_input.dart';
-import 'package:app_movil_telemedicina/widgets/form_field_input/form_field_input.dart';
-import 'package:app_movil_telemedicina/widgets/form_field_input/image_form_input.dart';
-import 'package:date_format/date_format.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
 
 // typedef SCallback = Function(Trabajador persona);
 
@@ -48,7 +42,7 @@ final validar = Validar();
 
 class F_formPacienteState extends State<FormPaciente> {
   @override
-  // TODO: implement context
+
   BuildContext get context => super.context;
 
   @override

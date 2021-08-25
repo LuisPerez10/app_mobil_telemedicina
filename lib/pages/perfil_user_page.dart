@@ -36,7 +36,6 @@ class _PerfilPageState extends State<PerfilUserPage> {
   void initState() {
 // testear para la pagina sobre convertir a simnglescrollpage
 
-    // TODO: implement initState
     _scrollCustomController.addListener(() {
       if (_scrollCustomController.position.pixels ==
               _scrollCustomController.position.maxScrollExtent &&

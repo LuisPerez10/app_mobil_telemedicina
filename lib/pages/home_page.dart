@@ -1,8 +1,9 @@
+import 'package:app_movil_telemedicina/pages/myHome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:app_movil_telemedicina/models/usuario.dart';
+
 import 'package:app_movil_telemedicina/pages/historial_page.dart';
-import 'package:app_movil_telemedicina/pages/perfil_page.dart';
+
 import 'package:app_movil_telemedicina/pages/perfil_user_page.dart';
 import 'package:app_movil_telemedicina/services/BottomNavigationBarServices/ui_provider.dart';
 import 'package:app_movil_telemedicina/services/auth_service.dart';
@@ -38,37 +39,50 @@ class _HomePageBody extends StatelessWidget {
 
     switch (currentIndex) {
       case 0:
-        // scanListProvider.cargarScanPorTipo('geo');
-        return Container(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MaterialButton(
-                    child: Text('Buscar Medico',
-                        style: TextStyle(color: Colors.white)),
-                    color: Theme.of(context).primaryColor,
-                    shape: StadiumBorder(),
-                    elevation: 0,
-                    splashColor: Colors.transparent,
-                    onPressed: () async {
-                      await Navigator.pushNamed(context, 'buscar2');
-                    }),
-                    Divider( ),
-                     MaterialButton(
-                    child: Text('Fichas Medicas',
-                        style: TextStyle(color: Colors.white)),
-                    color: Theme.of(context).primaryColor,
-                    shape: StadiumBorder(),
-                    elevation: 0,
-                    splashColor: Colors.transparent,
-                    onPressed: () async {
-                      await Navigator.pushNamed(context, 'fichamedica');
-                    })
-              ],
-            ),
-          ),
-        ); //MapasPage();
+      // scanListProvider.cargarScanPorTipo('geo');
+        // return Container(
+        //   child: Center(
+        //     child: Column(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         MaterialButton(
+        //             child: Text('Buscar Medico',
+        //                 style: TextStyle(color: Colors.white)),
+        //             color: Theme.of(context).primaryColor,
+        //             shape: StadiumBorder(),
+        //             elevation: 0,
+        //             splashColor: Colors.transparent,
+        //             onPressed: () async {
+        //               await Navigator.pushNamed(context, 'buscarmedico');
+        //             }),
+        //             Divider( ),
+        //              MaterialButton(
+        //             child: Text('Fichas Medicas',
+        //                 style: TextStyle(color: Colors.white)),
+        //             color: Theme.of(context).primaryColor,
+        //             shape: StadiumBorder(),
+        //             elevation: 0,
+        //             splashColor: Colors.transparent,
+        //             onPressed: () async {
+        //               await Navigator.pushNamed(context, 'fichamedica');
+        //             }),
+        //              Divider( ),
+        //              MaterialButton(
+        //             child: Text('home',
+        //                 style: TextStyle(color: Colors.white)),
+        //             color: Theme.of(context).primaryColor,
+        //             shape: StadiumBorder(),
+        //             elevation: 0,
+        //             splashColor: Colors.transparent,
+        //             onPressed: () async {
+        //               await Navigator.pushNamed(context, 'homepart');
+        //             })
+        //       ],
+        //     ),
+        //   ),
+        // ); //MapasPage();
+
+        return MyHomePage();
 
       case 1:
         // scanListProvider.cargarScanPorTipo('http');

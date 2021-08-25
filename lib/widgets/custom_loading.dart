@@ -13,7 +13,7 @@ class _CurstomLoadingState extends State<CurstomLoading>
   // final dynamic _colorTween;
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     _animationController.dispose();
     super.dispose();
   }

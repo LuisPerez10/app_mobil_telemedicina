@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       new GlobalKey<NavigatorState>();
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
     final notification = new NotificationsService();
     notification.initNotifications();

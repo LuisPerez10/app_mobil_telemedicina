@@ -1,5 +1,6 @@
 import 'package:app_movil_telemedicina/pages/buscar_medicos.dart';
-import 'package:app_movil_telemedicina/pages/jitsi.dart';
+import 'package:app_movil_telemedicina/pages/ficha_medica.dart';
+ import 'package:app_movil_telemedicina/pages/jitsi.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -551,7 +552,7 @@ class partHome extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => Buscar_Medicos(),
+                  pageBuilder: () => BuscarMedicosPage(),
                 ),
               ],
               child: Container(
@@ -597,7 +598,7 @@ class partHome extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => JitsiPage(),
+                  pageBuilder: () => FichaMedicaPage(),
                 ),
               ],
               child: Container(
@@ -618,7 +619,7 @@ class partHome extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(size: 32.2, middle: 0.829),
-            Pin(size: 39.8, middle: 0.1593),
+            Pin(size: 39.8, middle: 0.1693),
             child:
                 // Adobe XD layer: 'microscope' (group)
                 Stack(
@@ -748,7 +749,7 @@ class partHome extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(size: 60.0, start: 47.0),
-            Pin(size: 20.0, middle: 0.2386),
+            Pin(size: 20.0, middle: 0.2486),
             child: Text(
               'Medicos',
               style: TextStyle(
