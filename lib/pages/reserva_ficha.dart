@@ -53,9 +53,25 @@ class _ReservaFichaState extends State<ReservaFicha> {
                           horario:
                               '${horarioService.horario.horaInicio} - ${horarioService.horario.horaCierre}',
                         ),
-                        Text('Seleccione fecha de su cita'),
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text(
+                              'Seleccione la fecha para su cita',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 110, 120, 247)),
+                            )),
                         _widgetFecha(context),
-                        Text('Seleccione su ficha'),
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text(
+                              'Elije un horario',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 110, 120, 247)),
+                            )),
                         SizedBox(height: 10),
                         FutureBuilder(
                           future: horarioService.cargarTicket(
@@ -152,18 +168,25 @@ class _ReservaFichaState extends State<ReservaFicha> {
         calcularTicketDisponible(horarioService, fechaSeleccionada);
 
     int items = ticketsDisponible.length;
+
+    int newLength = items % 2 == 0 ? items ~/ 2 : items ~/ 2 + 1;
+    int extraIndex = -2;
     return Expanded(
       child: ListView.builder(
-        itemCount: items ~/ 2 + items % 2,
-        itemBuilder: (context, index) {
+        itemCount: newLength, //items ~/ 2 + items % 2,
+        itemBuilder: (_, index) {
+          extraIndex += 2;
           return Row(
             children: [
               Expanded(
                   child: _customChip(context, ticketsDisponible, horarioService,
-                      index, perfil)),
+                      extraIndex, perfil)),
               Expanded(
-                  child: _customChip(context, ticketsDisponible, horarioService,
-                      index + 1, perfil)),
+                child: (extraIndex + 1 < items)
+                    ? _customChip(context, ticketsDisponible, horarioService,
+                        extraIndex + 1, perfil)
+                    : Text(''),
+              ),
             ],
           );
         },
@@ -173,12 +196,11 @@ class _ReservaFichaState extends State<ReservaFicha> {
 
   List<DateTime> calcularTicketDisponible(
       HorarioService horarioService, DateTime fechaSeleccionada) {
-    String horaInicio = horarioService.horario.horaInicio; //'07:00';
-    String horaCierre = horarioService.horario.horaCierre; //'14:00';
+    String horaInicio = horarioService.horario.horaInicio;
+    String horaCierre = horarioService.horario.horaCierre;
 
-    String fecha =
-        formatDate(fechaSeleccionada, [yyyy, '-', mm, '-', dd]); //'2021-05-21';
-    String tiempo = horarioService.horario.tiempo;
+    String fecha = formatDate(fechaSeleccionada, [yyyy, '-', mm, '-', dd]);
+    final int tiempo = int.parse(horarioService.horario.tiempo);
 
     var horaInicioDate = DateTime.parse("$fecha $horaInicio:00Z");
     var horaInicioDateAux = horaInicioDate;
@@ -202,7 +224,7 @@ class _ReservaFichaState extends State<ReservaFicha> {
           var isDataBetweenCierre = this.isDateBetween(
               tiqueHoraInicio,
               tiqueHoraFin,
-              horaInicioDateAux.add(Duration(minutes: (int.parse(tiempo)))));
+              horaInicioDateAux.add(Duration(minutes: tiempo - 1)));
           if (isDataBetweenInicio || isDataBetweenCierre) {
             isDateRecorded = true;
           }
@@ -210,20 +232,24 @@ class _ReservaFichaState extends State<ReservaFicha> {
       }
 
       if (!isDateRecorded) {
-        print(horaInicioDateAux);
         ticketList.add(horaInicioDateAux);
       }
       isDateRecorded = false;
-      horaInicioDateAux =
-          horaInicioDateAux.add(Duration(minutes: (int.parse(tiempo))));
+      horaInicioDateAux = horaInicioDateAux.add(Duration(minutes: tiempo));
     }
 
     return ticketList;
   }
 
-  bool isDateBetween(
+  bool isDateBetween2(
       DateTime horaInicio, DateTime horaCierre, DateTime horaMedio) {
     return !horaInicio.isAfter(horaMedio) && horaCierre.isAfter(horaMedio);
+    // return horaCierre.isAfter(horaMedio) && horaInicio.isBefore(horaMedio);
+  }
+
+  bool isDateBetween(
+      DateTime horaInicio, DateTime horaCierre, DateTime horaMedio) {
+    return horaInicio.isBefore(horaMedio) && horaCierre.isAfter(horaMedio);
     // return horaCierre.isAfter(horaMedio) && horaInicio.isBefore(horaMedio);
   }
 
@@ -244,37 +270,40 @@ class _ReservaFichaState extends State<ReservaFicha> {
     );
   }
 
+  _registrarReserva(BuildContext context, ticketsDisponible, horarioService,
+      index, MedicoResponse perfil) async {
+    mostrarAlerta(context, "Confirmar",
+        "¿Quieres realizar la reserva para una cita medica?", hasCancel: true,
+        onPressed: () async {
+      final reservaFicha = Provider.of<ReservaService>(context, listen: false);
+      final authService = Provider.of<AuthService>(context, listen: false);
+      final horarioService =
+          Provider.of<HorarioService>(context, listen: false);
+      bool ok = await reservaFicha.crearReserva(
+          perfil.persona.id,
+          authService.persona.id,
+          widget.fechaSeleccionada,
+          ticketsDisponible[index],
+          horarioService.horario.tiempo);
+
+      if (ok) {
+        mostrarAlerta(context, "Regitro exitoso",
+            "Has programado una cita medica de manera exitosa, espera la confirmacion de tu Medico",
+            onPressed: () => Navigator.pushReplacementNamed(context, 'home'));
+      } else {
+        mostrarAlerta(context, "Regitro No guardado",
+            "Ha ocurrido un error al guardar reservar tu cita medica");
+      }
+    });
+  }
+
   Widget _customChip(BuildContext context, ticketsDisponible, horarioService,
       index, MedicoResponse perfil) {
     return ActionChip(
         padding: EdgeInsets.all(12),
         onPressed: () async {
-          // ticketsDisponible[index];
-          print(index);
-
-          final reservaFicha =
-              Provider.of<ReservaService>(context, listen: false);
-          final authService = Provider.of<AuthService>(context, listen: false);
-          final horarioService =
-              Provider.of<HorarioService>(context, listen: false);
-          bool ok = await reservaFicha.crearReserva(
-              perfil.persona.id,
-              authService.persona.id,
-              widget.fechaSeleccionada,
-              ticketsDisponible[index],
-              horarioService.horario.tiempo);
-          if (ok) {
-            mostrarAlerta(context, "Regitro exitoso",
-                "Has programado una cita medica de manera exitosa, espera la confirmacion de tu Medico",
-                onPressed: () {
-              Navigator.pushReplacementNamed(context, 'home');
-
-              // Navigator.popAndPushNamed(context, 'home');
-            });
-          } else {
-            mostrarAlerta(context, "Regitro No guardado",
-                "Ha ocurrido un error al guardar tu cita medica");
-          }
+          await _registrarReserva(
+              context, ticketsDisponible, horarioService, index, perfil);
         },
         shape: StadiumBorder(
             side: BorderSide(
@@ -283,13 +312,17 @@ class _ReservaFichaState extends State<ReservaFicha> {
         )),
         backgroundColor: Colors.white,
         label: Text(
-          formatDate(ticketsDisponible[index], [HH, ':', nn, ' ', am]) +
-              ' - ' +
-              formatDate(
-                  ticketsDisponible[index].add(Duration(
-                      minutes: int.parse(horarioService.horario.tiempo))),
-                  [HH, ':', nn, ' ', am]),
+          _rangoFecha(
+              ticketsDisponible[index],
+              ticketsDisponible[index].add(
+                  Duration(minutes: int.parse(horarioService.horario.tiempo)))),
           style: TextStyle(fontWeight: FontWeight.bold),
         ));
+  }
+
+  _rangoFecha(DateTime inicio, DateTime fin) {
+    return formatDate(inicio, [HH, ':', nn, ' ', am]) +
+        ' - ' +
+        formatDate(fin, [HH, ':', nn, ' ', am]);
   }
 }

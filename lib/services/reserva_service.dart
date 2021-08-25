@@ -18,7 +18,7 @@ class ReservaService with ChangeNotifier {
     var data = {
       'medico': medico,
       'paciente': paciente,
-      'fecha': fecha,
+      'fecha': fecha.toIso8601String(),
       'horaInicio': horaInicio.toIso8601String(),
       'tiempo': tiempo,
     };

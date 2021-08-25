@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 mostrarAlerta(BuildContext context, String titulo, String subtitulo,
-    {Function onPressed}) {
+    {Function onPressed,
+    Function onPressedCancel,
+    String textConfirm,
+    bool hasCancel = false}) {
   if (Platform.isAndroid) {
     return showDialog(
         context: context,
@@ -12,11 +15,19 @@ mostrarAlerta(BuildContext context, String titulo, String subtitulo,
               title: Text(titulo),
               content: Text(subtitulo),
               actions: <Widget>[
+                (hasCancel)
+                    ? MaterialButton(
+                        child: Text('Cancelar'),
+                        elevation: 5,
+                        textColor: Colors.blue,
+                        onPressed:
+                            onPressedCancel ?? () => Navigator.pop(context))
+                    : Text(''),
                 MaterialButton(
-                    child: Text('Ok'),
+                    child: Text(textConfirm ?? "Ok"),
                     elevation: 5,
                     textColor: Colors.blue,
-                    onPressed: onPressed ?? () => Navigator.pop(context))
+                    onPressed: onPressed ?? () => Navigator.pop(context)),
               ],
             ));
   }

@@ -123,7 +123,7 @@ class PerfilMedico extends StatelessWidget {
                                     Expanded(
                                         child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Text(this.tiempo,
+                                      child: Text(this.tiempo + " Min",
                                           style: TextStyle(
                                               fontSize: 15.0,
                                               color: Color.fromARGB(
