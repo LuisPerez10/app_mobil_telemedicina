@@ -1,15 +1,14 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:app_movil_telemedicina/global/environment.dart';
-import 'package:app_movil_telemedicina/models/listaMedico.dart';
 
-import 'package:app_movil_telemedicina/services/busqueda_medico_service.dart';
+import 'package:app_movil_telemedicina/models/fichas_medicas.dart';
+
+import 'package:app_movil_telemedicina/services/ficha_medica_service.dart';
 import 'package:app_movil_telemedicina/widgets/my_custom_list.dart';
 
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:intl/intl.Dart';
 
 class FichaMedica extends StatefulWidget {
   FichaMedica({
@@ -21,12 +20,8 @@ class FichaMedica extends StatefulWidget {
 }
 
 class _FichaMedicaState extends State<FichaMedica> {
-  List especialidades;
-
   @override
   void initState() {
-    _cargarEspecialidades();
-
     super.initState();
   }
 
@@ -37,7 +32,7 @@ class _FichaMedicaState extends State<FichaMedica> {
 
   @override
   Widget build(BuildContext context) {
-    final String especialidad = ModalRoute.of(context).settings.arguments;
+    // final String especialidad = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
       backgroundColor: const Color(0xfff5f5f5),
@@ -76,7 +71,7 @@ class _FichaMedicaState extends State<FichaMedica> {
             Pin(size: 195.0, start: 70.0),
             Pin(size: 24.0, start: 62.5),
             child: Text(
-              especialidad,
+              "Fichas Medicas",
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 17,
@@ -132,49 +127,35 @@ class _FichaMedicaState extends State<FichaMedica> {
       ),
     );
   }
-
-  _cargarEspecialidades() async {
-    final resp =
-        await http.get('${Environment.apiUrl}/especialidad/getespecialidades');
-
-    final data = json.decode(resp.body);
-    // print(data["especialidades"]);
-    setState(() {
-      especialidades = data["especialidades"];
-      print(especialidades.length);
-    });
-  }
 }
 
 Widget _cargarFichas(BuildContext context) {
-
-}
-
-Widget _cargarMedicos(BuildContext context, String especialidad) {
-  //return Container( child: Center(child: Text(especialidad),));
-  final busquedaService = new BusquedaMedicoService();
+  final fichasService = new FichasMedicasService();
 
   return FutureBuilder(
-    future: busquedaService.buscarMedicos(especialidad),
-    builder:
-        (BuildContext context, AsyncSnapshot<List<MedicoResponse>> snapshot) {
+    future: fichasService.getFichaMedicas(),
+    builder: (BuildContext context, AsyncSnapshot<FichaMedicas> snapshot) {
       if (!snapshot.hasError) {
         if (snapshot.hasData) {
-          var medicos = snapshot.data;
-          if (medicos.length == 0) {
+          var ficha = snapshot.data.fichaMedicas;
+          var medico = snapshot.data.medico;
+          if (ficha.length == 0) {
             return Center(child: Text('no hay respuesta'));
           }
 
           return ListView.builder(
-            itemCount: medicos.length,
+            itemCount: ficha.length,
             itemBuilder: (BuildContext context, int index) {
               return MyCustomList(
-                  title: medicos[index].usuario.nombre,
-                  subtitle: medicos[index].medico.especialidad,
-                  imgUri: medicos[index].usuario.img,
-                  medico: medicos[index],
+                  title: ficha[index].medico.nombre +
+                      " " +
+                      ficha[index].medico.nombre,
+                  subtitle: "Especialidad: " + medico[index].especialidad,
+                  imgUri: ficha[index].medico.usuario.img,
+                  item: _tofecha(ficha[index].fecha),
+                  nameButton: "Ingresar a Sala",
                   onPressed: () {
-                    Navigator.of(context).pushNamed('reserva', arguments: medicos[index]);
+                    Navigator.of(context).pushNamed('jitsi');
                   });
             },
           );
@@ -190,3 +171,55 @@ Widget _cargarMedicos(BuildContext context, String especialidad) {
   );
 }
 
+_tofecha(DateTime fecha) {
+  var now = fecha;
+  var formatter = new DateFormat('dd-MM');
+  var formatterTime = new DateFormat('H:m');
+  String formatted = formatter.format(now);
+  String formattedtimed = formatterTime.format(now);
+
+  print(formatted); // something like 2013-04-20
+
+  return formatted + " a " + formattedtimed;
+}
+
+// Widget _cargarMedicos(BuildContext context, String especialidad) {
+//   //return Container( child: Center(child: Text(especialidad),));
+//   final busquedaService = new BusquedaMedicoService();
+
+//   return FutureBuilder(
+//     future: busquedaService.buscarMedicos(especialidad),
+//     builder:
+//         (BuildContext context, AsyncSnapshot<List<MedicoResponse>> snapshot) {
+//       if (!snapshot.hasError) {
+//         if (snapshot.hasData) {
+//           var medicos = snapshot.data;
+//           if (medicos.length == 0) {
+//             return Center(child: Text('no hay respuesta'));
+//           }
+
+//           return ListView.builder(
+//             itemCount: medicos.length,
+//             itemBuilder: (BuildContext context, int index) {
+//               return MyCustomList(
+//                   title: medicos[index].usuario.nombre,
+//                   subtitle: medicos[index].medico.especialidad,
+//                   imgUri: medicos[index].usuario.img,
+//                   medico: medicos[index],
+//                   onPressed: () {
+//                     Navigator.of(context)
+//                         .pushNamed('reserva', arguments: medicos[index]);
+//                   });
+//             },
+//           );
+//         } else {
+//           return Center(
+//             child: CircularProgressIndicator(),
+//           );
+//         }
+//       } else {
+//         return Center(child: Text("No se pudo conectar con el servidor"));
+//       }
+//     },
+//   );
+// }

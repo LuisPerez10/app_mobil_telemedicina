@@ -53,6 +53,17 @@ class _HomePageBody extends StatelessWidget {
                     splashColor: Colors.transparent,
                     onPressed: () async {
                       await Navigator.pushNamed(context, 'buscar2');
+                    }),
+                    Divider( ),
+                     MaterialButton(
+                    child: Text('Fichas Medicas',
+                        style: TextStyle(color: Colors.white)),
+                    color: Theme.of(context).primaryColor,
+                    shape: StadiumBorder(),
+                    elevation: 0,
+                    splashColor: Colors.transparent,
+                    onPressed: () async {
+                      await Navigator.pushNamed(context, 'fichamedica');
                     })
               ],
             ),

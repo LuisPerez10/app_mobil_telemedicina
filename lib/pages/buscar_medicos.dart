@@ -1,12 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:app_movil_telemedicina/global/environment.dart';
 import 'package:app_movil_telemedicina/search/search_delegate.dart';
-import 'package:app_movil_telemedicina/services/busqueda_medico_service.dart';
 import 'package:app_movil_telemedicina/widgets/form_field_input/form_field_input.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';

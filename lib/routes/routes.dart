@@ -1,5 +1,8 @@
 import 'package:app_movil_telemedicina/pages/buscar_medicos.dart';
 import 'package:app_movil_telemedicina/pages/detalle_busqueda.dart';
+import 'package:app_movil_telemedicina/pages/ficha_medica.dart';
+import 'package:app_movil_telemedicina/pages/jitsi.dart';
+import 'package:app_movil_telemedicina/pages/part_home.dart';
 import 'package:app_movil_telemedicina/pages/reserva_ficha.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movil_telemedicina/pages/Registro/register_paciente_page.dart';
@@ -21,4 +24,7 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   'buscar2': (BuildContext c) => Buscar_Medicos(),
   'reserva': (BuildContext c) => ReservaFicha(),
   'detalle': (BuildContext c) => DetalleBusqueda(),
+  'fichamedica': (BuildContext c) => FichaMedica(),
+  'jitsi': (BuildContext c) => JitsiPage(),
+  'homepart': (BuildContext c) => partHome(),
 };
