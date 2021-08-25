@@ -29,7 +29,7 @@ class MyCustomList extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
       ),
       elevation: 4.0,
-      margin: EdgeInsets.only(right: 2, left: 2, top: 5, bottom: 5),
+      margin: EdgeInsets.only(right: 12, left: 12, top: 8, bottom: 8),
       child: Container(
         padding: EdgeInsets.all(5),
         child: Column(

@@ -1,5 +1,4 @@
 import 'package:app_movil_telemedicina/models/listaMedico.dart';
-import 'package:app_movil_telemedicina/models/medico.dart';
 import 'package:app_movil_telemedicina/services/busqueda_medico_service.dart';
 import 'package:flutter/material.dart';
 
@@ -52,16 +51,6 @@ class DataSearch extends SearchDelegate {
             if (medicos.length == 0) {
               return Center(child: Text('no hay respuesta'));
             }
-
-            // return ListView(
-            //   children: medicos.map((medico) {
-            //     return ListTile(
-            //       leading: FadeInImage(
-            //         image: NetworkImage(medicos[0].usuario.img),
-            //       ),
-            //     );
-            //   }).toList();
-
             return ListView.builder(
               itemCount: medicos.length,
               itemBuilder: (BuildContext context, int index) {

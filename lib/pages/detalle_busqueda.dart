@@ -94,7 +94,7 @@ class _DetalleBusquedaState extends State<DetalleBusqueda> {
           // ),
           Pinned.fromPins(
             Pin(size: 166.0, start: 28.0),
-            Pin(size: 20.0, middle: 0.2424),
+            Pin(size: 20.0, middle: 0.2224),
             child: Text(
               'Lista de Medicos',
               style: TextStyle(
@@ -108,7 +108,7 @@ class _DetalleBusquedaState extends State<DetalleBusqueda> {
           ),
           Pinned.fromPins(
             Pin(start: 0.0, end: 0.0),
-            Pin(start: 200, end: 0.0),
+            Pin(start: 165, end: 0.0),
             child: // Adobe XD layer: 'Grupo lista de medi…' (group)
                 Stack(
               children: <Widget>[

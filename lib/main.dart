@@ -6,7 +6,6 @@ import 'package:app_movil_telemedicina/services/auth_service.dart';
 import 'package:app_movil_telemedicina/services/notification_service.dart';
 import 'package:provider/provider.dart';
 import 'package:app_movil_telemedicina/routes/routes.dart';
-import 'package:app_movil_telemedicina/services/paciente_service.dart';
 import 'package:app_movil_telemedicina/services/upload_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -34,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       new GlobalKey<NavigatorState>();
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
     final notification = new NotificationsService();
     notification.initNotifications();

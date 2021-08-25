@@ -8,18 +8,18 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class Buscar_Medicos extends StatefulWidget {
-  Buscar_Medicos({
+class BuscarMedicosPage extends StatefulWidget {
+  BuscarMedicosPage({
     Key key,
   }) : super(key: key);
 
   @override
-  _Buscar_MedicosState createState() => _Buscar_MedicosState();
+  _BuscarMedicosPageState createState() => _BuscarMedicosPageState();
 }
 
 final nombreCtrl = TextEditingController();
 
-class _Buscar_MedicosState extends State<Buscar_Medicos> {
+class _BuscarMedicosPageState extends State<BuscarMedicosPage> {
   List especialidades;
 
   @override
@@ -90,7 +90,7 @@ class _Buscar_MedicosState extends State<Buscar_Medicos> {
           ),
           Pinned.fromPins(
             Pin(size: 166.0, start: 28.0),
-            Pin(size: 20.0, middle: 0.2424),
+            Pin(size: 20.0, middle: 0.2524),
             child: Text(
               'Lista de especialidades',
               style: TextStyle(
@@ -104,7 +104,7 @@ class _Buscar_MedicosState extends State<Buscar_Medicos> {
           ),
           Pinned.fromPins(
             Pin(start: 0.0, end: 0.0),
-            Pin(start: 200, end: 0.0),
+            Pin(start: 190, end: 0.0),
             child: // Adobe XD layer: 'Grupo lista de medi…' (group)
                 Stack(
               children: <Widget>[
@@ -180,8 +180,7 @@ class EachList extends StatelessWidget {
 }
 
 Widget buildSearchBar(BuildContext context) {
-  final width = MediaQuery.of(context).size.width;
-
+ 
   var search = '';
 
   return SafeArea(
@@ -198,7 +197,6 @@ Widget buildSearchBar(BuildContext context) {
           onChanged: (value) {
             // persona.nombre = value;
             search = value;
-            print(value);
           },
           onTap: () {
             showSearch(context: context, delegate: DataSearch());

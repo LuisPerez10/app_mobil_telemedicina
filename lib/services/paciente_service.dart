@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:app_movil_telemedicina/global/environment.dart';
 import 'package:app_movil_telemedicina/models/paciente.dart';
 import 'package:app_movil_telemedicina/models/persona.dart';
-import 'package:app_movil_telemedicina/models/user_register.dart';
 import 'package:app_movil_telemedicina/models/usuario.dart';
 import 'package:http/http.dart' as http;
 

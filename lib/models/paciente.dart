@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:app_movil_telemedicina/global/environment.dart';
+
 
 Paciente pacienteFromJson(String str) => Paciente.fromJson(json.decode(str));
 
 String pacienteToJson(Paciente data) => json.encode(data.toJson());
 
-final base_url = Environment.apiUrl;
+
 
 class Paciente {
   Paciente({

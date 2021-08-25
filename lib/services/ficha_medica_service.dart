@@ -1,6 +1,8 @@
+
 import 'package:app_movil_telemedicina/global/environment.dart';
 
 import 'package:app_movil_telemedicina/models/fichas_medicas.dart';
+import 'package:app_movil_telemedicina/models/sala.dart';
 
 // import 'package:app_movil_telemedicina/models/fichas_medicas.dart';
 
@@ -26,6 +28,20 @@ class FichasMedicasService with ChangeNotifier {
       this.fichaMedicas = FichaMedicas();
       return this.fichaMedicas;
     }
+
+    //print(resp.body);
+  }
+
+  Future<Sala> getEstadoSala(String idFicha) async {
+    //final token = await this._storage.read(key: 'token');
+    Sala sala;
+
+    final resp =
+        await http.get('${Environment.apiUrl}/consulta/getsala/$idFicha');
+
+    sala = salaFromJson(resp.body);
+
+    return sala;
 
     //print(resp.body);
   }

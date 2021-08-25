@@ -5,7 +5,6 @@ import 'package:app_movil_telemedicina/models/login_response.dart';
 import 'package:app_movil_telemedicina/models/paciente.dart';
 import 'package:app_movil_telemedicina/models/persona.dart';
 import 'package:app_movil_telemedicina/models/usuario.dart';
-import 'package:app_movil_telemedicina/models/foto.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
