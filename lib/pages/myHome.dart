@@ -2,6 +2,7 @@ import 'package:adobe_xd/adobe_xd.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:app_movil_telemedicina/pages/buscar_medicos.dart';
 import 'package:app_movil_telemedicina/pages/ficha_medica.dart';
+import 'package:app_movil_telemedicina/pages/recetas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -70,7 +71,16 @@ class MyHomePage extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 75.0, middle: 0.4983),
             Pin(size: 75.0, start: 106.0),
-            child: Container(
+            child:PageLink(
+              links: [
+                    PageLinkInfo(
+                      transition: LinkTransition.Fade,
+                      ease: Curves.easeOut,
+                      duration: 0.3,
+                      pageBuilder: () => RecetasPage(),
+                    )
+              ], 
+              child:  Container(
               decoration: BoxDecoration(
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
@@ -84,6 +94,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
+              )
           ),
           Pinned.fromPins(
             Pin(size: 75.0, end: 34.0),
