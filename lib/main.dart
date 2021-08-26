@@ -35,14 +35,11 @@ class _MyAppState extends State<MyApp> {
       new GlobalKey<NavigatorState>();
   @override
   void initState() {
-    
     super.initState();
     final notification = new NotificationsService();
     notification.initNotifications();
     notification.mensajesStream.listen((data) {
-      print('recibiendo notification');
-      print(data);
-      navigatorKey.currentState.pushNamed('login');
+      navigatorKey.currentState.pushNamed('fichamedica');
     });
   }
 
