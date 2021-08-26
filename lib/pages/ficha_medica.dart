@@ -157,12 +157,13 @@ Widget _cargarFichas(BuildContext context) {
                   item: _tofecha(ficha[index].fecha),
                   nameButton: "Ingresar a Sala",
                   onPressed: () async {
+                    print(ficha[index].nroFicha);
                     var isVerificada = _verificarFecha(ficha[index].fecha);
                     if (isVerificada) {
                       _verEstadoSala(context, ficha[index].id);
                     } else {
                       mostrarAlerta(context, "Informacion de Sala",
-                          "Verifique la fecha de su consulta...");
+                          "Verifique la fecha de su consulta por favor");
                     }
                   });
             },
@@ -183,17 +184,17 @@ bool _verificarFecha(DateTime fecha) {
   var fechaFicha = fecha;
   var formatter = new DateFormat('dd-MM');
   var fechanow = new DateTime.now();
-
   String fechaFichaFormate = formatter.format(fechaFicha);
   String fechaNowFormate = formatter.format(fechanow);
 
-   return (fechaFichaFormate == fechaNowFormate) ? true : false;
-  //return true;
+  return (fechaFichaFormate == fechaNowFormate) ? true : false;
 }
 
 void _verEstadoSala(BuildContext context, String id) async {
   final fichasService = new FichasMedicasService();
-   Sala data = await fichasService.getEstadoSala(id);
+  Sala data = await fichasService.getEstadoSala(id);
+
+  print(data.estado);
   if (data.estado == "habilitado") {
     Navigator.of(context).pushNamed('jitsi', arguments: data);
   } else {

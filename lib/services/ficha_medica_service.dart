@@ -1,4 +1,3 @@
-
 import 'package:app_movil_telemedicina/global/environment.dart';
 
 import 'package:app_movil_telemedicina/models/fichas_medicas.dart';
@@ -34,12 +33,15 @@ class FichasMedicasService with ChangeNotifier {
 
   Future<Sala> getEstadoSala(String idFicha) async {
     //final token = await this._storage.read(key: 'token');
+    print(idFicha);
     Sala sala;
 
     final resp =
         await http.get('${Environment.apiUrl}/consulta/getsala/$idFicha');
 
     sala = salaFromJson(resp.body);
+    print(sala.estado);
+    print("-------------------");
 
     return sala;
 
