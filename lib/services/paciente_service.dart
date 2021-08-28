@@ -23,7 +23,6 @@ class PacienteService {
   Future<dynamic> registrar(
       Usuario usuario, Persona persona, Paciente paciente) async {
     final data = {
-      'img': usuario.img,
       ...usuario.toJson(),
       ...persona.toJson(),
       ...paciente.toJson(),

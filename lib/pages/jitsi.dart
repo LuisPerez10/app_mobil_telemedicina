@@ -19,7 +19,6 @@ import 'package:jitsi_meet/room_name_constraint.dart';
 import 'package:jitsi_meet/room_name_constraint_type.dart';
 import 'package:provider/provider.dart';
 
-
 class JitsiPage extends StatefulWidget {
   // const reservaFicha({ Key key }) : super(key: key);
 
@@ -54,33 +53,29 @@ class _JitsiPageState extends State<JitsiPage> {
   @override
   Widget build(BuildContext context) {
     final Sala sala = ModalRoute.of(context).settings.arguments;
-   
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        
         appBar: AppBar(
           title: Row(
             children: [
               FadeInLeft(
-                    duration: Duration(milliseconds: 300),
-                    child: CircleAvatar(
-                      maxRadius: 25,
-                      backgroundColor: Colors.transparent,
-                      child: IconButton(
-                          icon: Icon(Icons.arrow_back, color: Colors.white),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          }),
-                    ),
-                  ),
+                duration: Duration(milliseconds: 300),
+                child: CircleAvatar(
+                  maxRadius: 25,
+                  backgroundColor: Colors.transparent,
+                  child: IconButton(
+                      icon: Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                ),
+              ),
               Text('Configuracion'),
-              
             ],
           ),
-          
         ),
-        
         body: Container(
           padding: const EdgeInsets.symmetric(
             horizontal: 16.0,
@@ -91,7 +86,6 @@ class _JitsiPageState extends State<JitsiPage> {
                 SizedBox(
                   height: 24.0,
                 ),
-              
                 SizedBox(
                   height: 16.0,
                 ),
@@ -126,19 +120,18 @@ class _JitsiPageState extends State<JitsiPage> {
                 SizedBox(
                   height: 64.0,
                   width: double.maxFinite,
-                  child: 
-                 ElevatedButton(
-                       onPressed: () {
-                         _joinMeeting(sala.room);
-                       },
-                       child: Text(
-                         "Entrar a Consulta",
-                         style: TextStyle(color: Colors.white),
-                       ),
-                       style: ButtonStyle(
-                           backgroundColor: MaterialStateColor.resolveWith(
-                               (states) => Colors.blue)),
-                     ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _joinMeeting(sala.room);
+                    },
+                    child: Text(
+                      "Entrar a Consulta",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateColor.resolveWith(
+                            (states) => Colors.blue)),
+                  ),
                 ),
                 SizedBox(
                   height: 48.0,
@@ -150,7 +143,8 @@ class _JitsiPageState extends State<JitsiPage> {
       ),
     );
   }
-    _onAudioOnlyChanged(bool value) {
+
+  _onAudioOnlyChanged(bool value) {
     setState(() {
       isAudioOnly = value;
     });
@@ -167,7 +161,6 @@ class _JitsiPageState extends State<JitsiPage> {
       isVideoMuted = value;
     });
   }
-
 
   _joinMeeting(String room) async {
     final authService = Provider.of<AuthService>(context, listen: false);
@@ -195,7 +188,7 @@ class _JitsiPageState extends State<JitsiPage> {
 
       // Define meetings options here
       var options = JitsiMeetingOptions()
-        ..room = "salatopicos"
+        ..room = room
         ..subject = "consulta"
         ..userDisplayName = persona.nombre
         ..userEmail = usuario.email

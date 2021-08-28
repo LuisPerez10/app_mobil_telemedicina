@@ -281,9 +281,7 @@ class _RegisterPacientePageState extends State<RegisterPacientePage> {
     //     Provider.of<NotificationsService>(context, listen: false);
 
     usuario.img = await fileuploadService.subirImagen(foto.value);
-    print(usuario.toJson());
-    print(persona.toJson());
-    print(paciente.toJson());
+
     await pacienteBloc.registrarPaciente(usuario, persona, paciente);
 
     // await notificacion.guardarTokenFCMByEmailServices(userRegister.email);

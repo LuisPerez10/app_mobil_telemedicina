@@ -1,12 +1,8 @@
 import 'dart:convert';
 
-
-
 Persona personaFromJson(String str) => Persona.fromJson(json.decode(str));
 
 String personaToJson(Persona data) => json.encode(data.toJson());
-
-
 
 class Persona {
   Persona({
@@ -14,7 +10,6 @@ class Persona {
     this.nombre,
     this.apellido,
     this.celular,
-    this.img,
     this.direccion,
     this.fechaNacimiento,
     this.genero,
@@ -28,7 +23,6 @@ class Persona {
   String celular;
   String fechaNacimiento;
   String genero;
-  String img;
   String direccion;
   // String email;
   // String password;
@@ -41,18 +35,16 @@ class Persona {
         direccion: json["direccion"] ?? 'Sin Direccion',
         fechaNacimiento: json["fecha_nacimiento"] ?? '',
         genero: json["genero"] ?? '',
-        img: json["img"] ?? '',
         // email: json["email"],
         // // password: json["password"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
+        "id": id,
         "nombre": nombre,
         "apellido": apellido,
         "celular": celular,
         "direccion": direccion,
-        "img": img,
         "genero": genero,
         "fecha_nacimiento": fechaNacimiento
       };
